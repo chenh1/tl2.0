@@ -4,7 +4,8 @@
     "dev": "next",
     "build": "next build",
     "start": "next start",
-    "build:static": "next export"
+    "build:static": "next export",
+    "test": "jest"
   },
   "dependencies": {
     "emotion": "^9.2.8",
