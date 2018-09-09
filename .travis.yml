@@ -11,6 +11,7 @@ after_success:
   - "echo 'Scripts done running'"
 deploy:
   - provider: firebase
+    skip_cleanup: true
     token:
       secure: RuXYquFKjCNESNWnU6+uxH9UvieisNiaYQumt6zfaDJbK6Ok93DBOBRJ+88dsd9VorX6GwJqiyG1Nl2d0Hs4HlmtU16YxrWXF++1QivQW+1xkIbQTPnkNFSD3cBrfG0YFl5YG5fCiDyr8G503a9NIQg2BWCZb1lHyWW8kNgRAayZyNh61dq3c1pYE/60RI1xgLhhqgKqge780FDrhKqNuOdbgVRfxJAFJ2X/lHFOW2jiYzhJPme5TnsnB9gxw9wUbkXLi32xTVTkripZmT8s1zGIfJi1ACobKWDYiOGikSRXDk508tcyN1pZbmvBFR+3PP55pskvjrPvw8YpAvv+fudFP+M4clu/795MeYIgslfvhZbYUm4G2VBHQHPhOnIhZR19ZlR+UJ0uppkiBKccGgcl46He+4EwmkEYleCsssh+mSYWoPxuh+9fhf19/w3VhsmNxUCB1DC2iUMjI8K5ZhyAqdhBOfNnmDcy1cSnDix+gngbqcN1dwXmwq9fWwAPxZFMqKAnmn6HPVa32Eu4e8KTuOVPgG/yfjKRVYC9d93m3ejrznZXylOf3falW1NX/bRAzQMV7s52r91RH++KUNkLBYVqJE4htFbegd0tyd2+zVyl4bA8wr05hkeaVaXs7lhYqrILEd0turUuFSOUCZxH7S1wzJRmfBs2d+vGQ8U=
     project: "test-server-cd2c2"
