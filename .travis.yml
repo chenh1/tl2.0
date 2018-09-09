@@ -5,6 +5,7 @@ node_js:
 before_script:
   - npm install
 script: 
+  - npm run build
   - npm run build:static
 after_success:
   - "echo 'Scripts done running'"
