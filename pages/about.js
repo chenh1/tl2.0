@@ -1,7 +1,8 @@
 import React from 'react'
 import Link from 'next/link'
-import Head from '../components/head'
-import Nav from '../components/nav'
+import Head from '../ui/components/head'
+import Nav from '../ui/components/nav'
+import Container from '../ui/components/Container';
 
 const Home = () => (
   <div>
@@ -9,12 +10,12 @@ const Home = () => (
     <Nav />
 
     <div className="hero">
-      <h1 className="title">ABOUT PAGE 2</h1>
+      <h1 className="title">About</h1>
       <p className="description">
         To get started, edit <code>pages/index.js</code> and save to reload.
       </p>
 
-      <div className="row">
+      <Container className="row">
         <Link href="https://github.com/zeit/next.js#getting-started">
           <a className="card">
             <h3>Getting Started &rarr;</h3>
@@ -36,7 +37,7 @@ const Home = () => (
             <p>Was this tool helpful? Let us know how we can improve it</p>
           </a>
         </Link>
-      </div>
+      </Container>
     </div>
 
     <style jsx>{`
