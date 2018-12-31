@@ -19,6 +19,8 @@ const defaultStyle = css`
     margin: 0;
   }
   nav {
+    background: ${colors.white};
+    border-top: 1px solid ${colors.gray};
     bottom: 0;
     display: flex;
     justify-content: center;
@@ -35,6 +37,8 @@ const defaultStyle = css`
   }
   @media (min-width: ${viewport.lg}) {
     nav {
+      background: ${colors.transparent};
+      border-top: none;
       position: relative;
     }
     li {
