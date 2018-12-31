@@ -1,4 +1,4 @@
-import viewport from './viewport';
+import viewport from '../spacing/viewport';
 
 const breakpoint = {};
 

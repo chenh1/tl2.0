@@ -1,13 +1,6 @@
 import React from 'react';
-import css from 'styled-jsx/css';
 import getFontSize from '../../utils/fontSize';
-import fontFamily from '../../styles/fontFamily';
-
-const defaultStyle = css`
-  .paragraph {
-    font-family: ${fontFamily.garamond};
-  }
-`;
+import getFontFamily from '../../utils/fontSize';
 
 export default (props) => (
   <React.Fragment>
@@ -15,11 +8,10 @@ export default (props) => (
       {props.children}
     </p>
 
-    <style jsx>{defaultStyle}</style>
-
     <style jsx>
       {`
         .paragraph {
+          font-family: ${getFontFamily(props)};
           font-size: ${getFontSize(props)}
         }
       `}
