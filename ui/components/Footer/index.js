@@ -58,6 +58,9 @@ const defaultStyle = css`
     li:last-child {
       margin-right: 0;
     }
+    a{
+      text-decoration: none;
+    }
     a:hover {
       border-bottom: 3px solid ${colors.dustyPink};
     }

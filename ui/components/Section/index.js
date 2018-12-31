@@ -10,6 +10,14 @@ const defaultStyle = css`
     justify-content: center;
     padding: ${spacing.md} ${spacing.md};
   }
+  .section:first-child:not(:last-child),
+  .section:not(:first-child):not(:last-child) {
+    padding-bottom: 0;
+  }
+  .section:last-child:not(:first-child),
+  .section:not(:first-child):not(:last-child) {
+    padding-top: 0;
+  }
   .section-content {
     max-width: ${spacing.maxWidth};
     width: 100%;
