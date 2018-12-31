@@ -1,28 +1,7 @@
 import React from 'react';
-import css from 'styled-jsx/css';
-import getFontSize from '../../utils/fontSize';
-import fontFamily from '../../styles/fontFamily';
+import DefaultParagraph from './DefaultParagraph';
+import SubParagraph from './SubParagraph';
 
-const defaultStyle = css`
-  .paragraph {
-    font-family: ${fontFamily.garamond};
-  }
-`;
-
-export default (props) => (
-  <React.Fragment>
-    <p className="paragraph">
-      {props.children}
-    </p>
-
-    <style jsx>{defaultStyle}</style>
-
-    <style jsx>
-      {`
-        .paragraph {
-          font-size: ${getFontSize(props)}
-        }
-      `}
-    </style>
-  </React.Fragment>
-);
+// styled-jsx does not support dynamic external css, therefore, there is duplicate code
+// you cannot interpolate template strings within its own css helper...which is puzzling
+export default props => props.sub ? <SubParagraph {...props} /> : <DefaultParagraph {...props} />;

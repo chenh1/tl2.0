@@ -10,5 +10,5 @@ export default (props) => {
       }
     });
 
-  return family || fontFamily.garamond;
+  return family || fontFamily.roboto;
 };

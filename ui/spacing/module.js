@@ -1,4 +1,4 @@
-const spacing = {
+export default {
   xs: '4px',
   sm: '8px',
   md: '16px',
@@ -6,5 +6,3 @@ const spacing = {
   xl: '32px',
   xxl: '40px',
 };
-
-export default spacing;

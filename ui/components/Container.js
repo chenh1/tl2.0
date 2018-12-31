@@ -1,16 +1,16 @@
-import React from 'react'
-import css from 'styled-jsx/css'
+import React from 'react';
+import css from 'styled-jsx/css';
 import viewport from '../spacing/viewport';
 import colors from '../styles/colors';
-import fontFamily from '../styles/fontFamily';
+import TextLink from './TextLink';
 import Paragraph from './Paragraph';
+import Heading from './Heading';
 
 const maxWidth = '380px';
 
 const row = css`
   .container {
     background: ${colors.cloudyBlue};
-    font-family: ${fontFamily.garamond};
   }
   .row {
     max-width: ${maxWidth};
@@ -30,7 +30,12 @@ const row = css`
 export default ({ children }) => (
   <div className="container row">
     {children}
-    <Paragraph lg>TEST</Paragraph>
+    <Heading one>Some stuff</Heading>
+    <Paragraph sub>TEST</Paragraph>
+    <Paragraph sub>
+      asdkj asklj alsk  lask as
+      <TextLink href="https://www.google.com">asd</TextLink>
+    </Paragraph>
     <style jsx>
       {row}
     </style>
