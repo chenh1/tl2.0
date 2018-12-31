@@ -1,11 +1,16 @@
 import React from 'react'
-import breakpoint from '../spacing/util';
+import css from 'styled-jsx/css'
+import viewport from '../spacing/viewport';
+import colors from '../styles/colors';
+import fontFamily from '../styles/fontFamily';
+import Paragraph from './Paragraph';
 
 const maxWidth = '380px';
 
-const row = `
+const row = css`
   .container {
-    background: green;
+    background: ${colors.cloudyBlue};
+    font-family: ${fontFamily.garamond};
   }
   .row {
     max-width: ${maxWidth};
@@ -15,24 +20,19 @@ const row = `
     justify-content: space-around;    
   }
 
-  ${breakpoint.sm`
+  @media (min-width: ${viewport.sm}) {
     .row {
       max-width: 800px;
     }
-  `}
+  }
 `
-
-const StyleRules = () => (
-  <style jsx>
-    {`
-      ${row}
-    `}
-  </style>
-);
 
 export default ({ children }) => (
   <div className="container row">
     {children}
-    <StyleRules/>
+    <Paragraph lg>TEST</Paragraph>
+    <style jsx>
+      {row}
+    </style>
   </div>
 )
