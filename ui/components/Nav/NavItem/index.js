@@ -10,12 +10,20 @@ const defaultStyle = css`
   }
 `;
 
-export default ({ children }) => (
+export default ({ children, dataValue, onClick, isSelected }) => (
   <React.Fragment>
-    <span className="nav-item">
+    <span onClick={onClick} data-value={dataValue} className="nav-item">
       {children}
     </span>
 
     <style jsx>{defaultStyle}</style>
+    
+    <style jsx>
+      {`
+        .nav-item {
+          font-weight: ${isSelected ? '800' : '400'};
+        }
+      `}
+    </style>
   </React.Fragment>
 )
