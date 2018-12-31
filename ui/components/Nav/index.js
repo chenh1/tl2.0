@@ -1,5 +1,5 @@
 import React from 'react';
-import { compose, withStateHandlers } from 'recompose';
+import { compose, withStateHandlers, lifecycle } from 'recompose';
 import css from 'styled-jsx/css';
 import viewport from '../../spacing/viewport';
 import colors from '../../styles/colors';
@@ -49,13 +49,17 @@ export default compose(
       selected: ''
     }),
     {
-      updateSelected: () => (e) => {
-        return {
-          selected: e.target.getAttribute('data-value')
-        }
-      }
+      updateSelected: () => (path) => ({
+        selected: path
+      })
     }
-  )
+  ),
+  lifecycle({
+    componentDidMount() {
+      const path = location && location.pathname;
+      this.props.updateSelected(path);
+    }
+  })
 )(
   ({ selected, updateSelected }) => (
     <React.Fragment>
@@ -66,7 +70,7 @@ export default compose(
           {links.map((link, index) => (
             <li key={index}>
               <Link href={link.href}>
-                <NavItem isSelected={selected === link.text} onClick={updateSelected} dataValue={link.text}>{link.text.toUpperCase()}</NavItem>
+                <NavItem isSelected={selected === link.href} onClick={updateSelected} dataValue={link.text}>{link.text.toUpperCase()}</NavItem>
               </Link>
             </li>
           ))}

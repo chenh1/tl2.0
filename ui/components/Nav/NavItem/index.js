@@ -2,11 +2,17 @@ import React from 'react';
 import css from 'styled-jsx/css';
 import fontFamily from '../../../styles/fontFamily';
 import fontSize from '../../../spacing/fontSize';
+import colors from '../../../styles/colors';
+
 
 const defaultStyle = css`
   .nav-item {
     font-family: ${fontFamily.roboto};
     font-size: ${fontSize.sm};
+  }
+  .nav-item:hover {
+    cursor: pointer;
+    border-bottom: 3px solid ${colors.dustyPink};
   }
 `;
 
@@ -21,7 +27,7 @@ export default ({ children, dataValue, onClick, isSelected }) => (
     <style jsx>
       {`
         .nav-item {
-          font-weight: ${isSelected ? '800' : '400'};
+          font-weight: ${isSelected ? '700' : '400'};
         }
       `}
     </style>

@@ -1,7 +1,7 @@
 import React from 'react'
 import Link from 'next/link'
 import Head from '../ui/components/head'
-import Nav from '../ui/components/nav'
+import Nav from '../ui/components/Nav'
 import Container from '../ui/components/Container';
 
 const Home = () => (
