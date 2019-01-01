@@ -18,15 +18,22 @@ import Layout from '../ui/components/Layout';
 const Home = compose(
   withStateHandlers(
     () => ({
-      showStory: false
+      showStory: false,
+      emailLink: ''
     }),
     {
       displayStory: () => () => ({ showStory: true }),
-      hideStory: () => () => ({ showStory: false })
+      hideStory: () => () => ({ showStory: false }),
+      updateEmailLink: () => emailLink => ({ emailLink })
     }
-  )
+  ),
+  lifecycle({
+    componentDidMount() {
+      this.props.updateEmailLink('mailto:traysheeshee@gmail.com?Subject=Hello%20Mer')
+    }
+  })
 )(
-  ({ showStory, displayStory, hideStory }) => (
+  ({ showStory, displayStory, hideStory, emailLink }) => (
     <React.Fragment>
       <div>
         <Head title="Home" />
@@ -53,7 +60,7 @@ const Home = compose(
               <Paragraph sub>In college, I discovered design thinking. And as an art student, began applying user-centered ideology to my creative approach. Who is my audience? How does my work make them feel?</Paragraph>
               <Paragraph sub>I pivoted to graphic design and developed a curiosity to the end-user. I wanted to know who I was designing for and asked questions to build this understanding. When I later came across UX design, it dawned on me that this was what I had been looking for. This was the thing I had been practicing all along. </Paragraph>
               <Paragraph sub>As my work shifted into UX and UI design, I learned to balance business goals with customer needs. I’m committed to designing products and services with purpose. And I strive to provide design solutions that speak to the heart of customers. </Paragraph>
-              <Paragraph sub>Wanna stir up some UX magic with Merlin? Together we can make a positive and lasting difference in the lives of people. <a href="mailto:traysheeshee@gmail.com?Subject=Hello%20Mer">Let’s chat.</a></Paragraph>
+              <Paragraph sub>Wanna stir up some UX magic with Merlin? Together we can make a positive and lasting difference in the lives of people. <a href={emailLink}>Let’s chat.</a></Paragraph>
 
               <div onClick={hideStory} className="close-icon">
                 <img src="/static/close.png"/>

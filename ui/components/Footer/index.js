@@ -1,4 +1,5 @@
 import React from 'react';
+import { compose, withStateHandlers, lifecycle } from 'recompose';
 import css from 'styled-jsx/css';
 import viewport from '../../spacing/viewport';
 import fontFamily from '../../styles/fontFamily';
@@ -7,13 +8,6 @@ import colors from '../../styles/colors';
 import spacing from '../../spacing/module';
 import letterSpacing from '../../spacing/letterSpacing';
 import Section from '../Section';
-
-const links = [
-  {text: 'traysheeshee@gmail.com', href: 'mailto:traysheeshee@gmail.com?Subject=Hello%20Mer'},
-  {text: 'linkedin', href: 'https://www.linkedin.com/in/tracy-lin'},
-  {text: 'medium', href: 'https://medium.com/@tracy.lin'},
-  {text: 'graphic design', href: 'http://cargocollective.com/tracylin'}
-];
 
 const defaultStyle = css`
   ul {
@@ -75,30 +69,55 @@ const defaultStyle = css`
   }
 `;
 
-export default () => (
-  <React.Fragment>
-    <div className="footer">
-      <Section>
-        <div className="footer-wrapper">
-          <ul>
-            <li>
-              <span className="footer-item">&copy; 2018 TRACY LIN</span>
-            </li>
-          </ul>
-
-          <ul>
-            {links.map((link, index) => (
-              <li key={index}>
-                <a target="_blank" href={link.href}>
-                  <span className="footer-item">{link.text.toUpperCase()}</span>
-                </a>
+export default compose(
+  withStateHandlers(
+    () => ({
+      links: [
+        { text: 'linkedin', href: 'https://www.linkedin.com/in/tracy-lin' },
+        { text: 'medium', href: 'https://medium.com/@tracy.lin' },
+        { text: 'graphic design', href: 'http://cargocollective.com/tracylin' }
+      ]
+    }),
+    {
+      addEmail: ({ links }) => () => ({
+        links: [
+          { text: 'traysheeshee@gmail.com', href: 'mailto:traysheeshee@gmail.com?Subject=Hello%20Mer' },
+          ...links
+        ]
+      })
+    }
+  ),
+  lifecycle({
+    componentDidMount() {
+      this.props.addEmail();
+    }
+  })
+)(
+  ({ links }) => (
+    <React.Fragment>
+      <div className="footer">
+        <Section>
+          <div className="footer-wrapper">
+            <ul>
+              <li>
+                <span className="footer-item">&copy; 2018 TRACY LIN</span>
               </li>
-            ))}
-          </ul>
-        </div>
-      </Section>
-    </div>
-    
-    <style jsx>{defaultStyle}</style>
-  </React.Fragment>
+            </ul>
+
+            <ul>
+              {links.map((link, index) => (
+                <li key={index}>
+                  <a target="_blank" href={link.href}>
+                    <span className="footer-item">{link.text.toUpperCase()}</span>
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </Section>
+      </div>
+      
+      <style jsx>{defaultStyle}</style>
+    </React.Fragment>
+  )
 );
