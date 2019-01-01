@@ -39,7 +39,7 @@ const Home = compose(
         <Head title="Home" />
         <Nav />
 
-        <Layout modalActive={showStory}>
+        <Layout triggerModal={showStory}>
           <Section>
             <Paragraph>I’m Tracy—UX &amp; UI designer with a deep empathy for people and a natural affinity for human behavior. Design is relational and more than how something looks. I’m committed to providing design solutions that connect to the heart of customers. </Paragraph>
             <Paragraph>See my resume <TextLink href="/static/Tracy-Lin-Resume.pdf#zoom=125">here</TextLink></Paragraph>
@@ -137,8 +137,7 @@ const Home = compose(
           .link {
             overflow: hidden;
             transition: max-height .5s, transform .5s;
-          }
-          
+          }  
           .hidden.story {
             transform: translateY(100%);
           }
@@ -159,17 +158,18 @@ const Home = compose(
               max-width: 25px;
             }
             .story {
-              margin-bottom: 0;
+              margin-bottom: -80px;
               min-height: 0;
               position: relative;
               transform: translateY(-80px);
-              transition: max-height .5s, transform 0s;
+              transition: max-height .5s, transform 0s, margin-bottom 0s linear .5s;
             }
             .hidden {
               max-height: 0px;
               min-height: 0px;
             }
             .hidden.story {
+              margin-bottom: 0px;
               transform: translateY(0);
               transition: max-height .5s, transform 0s linear .5s;
             }

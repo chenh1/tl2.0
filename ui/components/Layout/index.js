@@ -20,24 +20,27 @@ const defaultStyle = css`
   }
 `;
 
+let animateDebounce;
+
 export default compose(
   withStateHandlers(
-    () => ({ isHidden: true }),
+    () => ({ modalActive: true }),
     {
-      showOverflow: () => () => ({ isHidden: false }),
-      hideOverflow: () => () => ({ isHidden: true })
+      showOverflow: () => () => ({ modalActive: false }),
+      hideOverflow: () => () => ({ modalActive: true })
     }
   ),
   lifecycle({
     componentWillReceiveProps(nextProps) {
-      const { hideOverflow, showOverflow, modalActive } = nextProps;
-      const prevModalActive = this.props.modalActive;
+      const { hideOverflow, showOverflow, triggerModal, modalActive } = nextProps;
+      const prevTriggerModal = this.props.triggerModal;
 
-      if (modalActive !== prevModalActive) {
-        if (modalActive) {
+      if (triggerModal !== prevTriggerModal) {
+        if (triggerModal) {
+          clearTimeout(animateDebounce);
           showOverflow();
         } else {
-          setTimeout(() => {
+          animateDebounce = setTimeout(() => {
             hideOverflow();
           }, 500);
         }
@@ -45,7 +48,7 @@ export default compose(
     }
   })
 )(
-  ({ children, isHidden }) => (
+  ({ children, modalActive }) => (
     <React.Fragment>
       <main className="section">
         {children}
@@ -56,10 +59,25 @@ export default compose(
       <style jsx>
         {`
           main {
-            overflow: ${isHidden ? 'hidden' : 'visible'};
+            overflow: ${modalActive ? 'hidden' : 'visible'};
+          }
+          :global(body){
+            overflow: ${modalActive ? 'visible' : 'hidden'}; 
+          }
+
+          @media (min-width: ${viewport.lg}) {
+            :global(body){
+              overflow: visible;
+            }
           }
         `}
       </style>
     </React.Fragment>
   )
 );
+
+/**
+ *           :global(body){
+            overflow: ${modalActive ? 'visible' : 'hidden'}; 
+          }
+ */
