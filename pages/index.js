@@ -36,7 +36,10 @@ const Home = compose(
   ({ showStory, displayStory, hideStory, emailLink }) => (
     <React.Fragment>
       <div>
-        <Head title="Home" />
+        <Head 
+          title="Tracy Lin"
+          description="Tracy Lin: Digital Product Designer"
+        />
         <Nav />
 
         <Layout triggerModal={showStory}>

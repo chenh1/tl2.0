@@ -18,7 +18,10 @@ import WorkModule from '../ui/components/WorkModule';
 
 const Work = () => (
   <div>
-    <Head title="Work" />
+    <Head 
+      title="My Work"
+      description="Tracy Lin: Digital Product Designer"
+    />
     <Nav />
 
     <Layout>
