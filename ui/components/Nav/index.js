@@ -63,7 +63,10 @@ export default compose(
     }
   })
 )(
-  ({ selected, updateSelected }) => (
+  ({ selected, updateSelected }) => {
+    console.log('selected and href:::', selected, `${selected}/`, href);
+    console.log('is selected???', href === selected, href === `${selected}/`)
+    return (
     <React.Fragment>
       <Logo/>
 
@@ -81,5 +84,5 @@ export default compose(
 
       <style jsx>{defaultStyle}</style>
     </React.Fragment>
-  )
+  )}
 );
