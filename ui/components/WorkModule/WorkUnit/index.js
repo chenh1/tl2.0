@@ -45,6 +45,9 @@ const defaultStyle = css`
     .label {
       line-height: 1.63;
     }
+    .work-link:hover {
+      color: ${colors.salmon};
+    }
   }
 `;
 
