@@ -68,10 +68,10 @@ export default compose(
 
       <nav>
         <ul>
-          {links.map((link, index) => (
+          {links.map(({ href, text }, index) => (
             <li key={index}>
-              <Link href={link.href}>
-                <NavItem isSelected={selected === link.href} onClick={updateSelected} dataValue={link.text}>{link.text.toUpperCase()}</NavItem>
+              <Link href={href}>
+                <NavItem isSelected={href === selected || href === `${selected}/`} onClick={updateSelected}>{text.toUpperCase()}</NavItem>
               </Link>
             </li>
           ))}
