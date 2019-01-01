@@ -58,32 +58,27 @@ export default compose(
   lifecycle({
     componentDidMount() {
       const path = location && location.pathname;
-      console.log('path::::', path)
       this.props.updateSelected(path);
     }
   })
 )(
-  ({ selected, updateSelected }) => {
-    return (
+  ({ selected, updateSelected }) => (
     <React.Fragment>
       <Logo/>
 
       <nav>
         <ul>
-          {links.map(({ href, text }, index) => {
-            console.log('selected and href:::', selected, `${selected}/`, href);
-            console.log('is selected???', href === selected, href === `${selected}/`)
-            return (
+          {links.map(({ href, text }, index) => (
             <li key={index}>
               <Link href={href}>
-                <NavItem isSelected={href === selected || href === `${selected}/`} onClick={updateSelected}>{text.toUpperCase()}</NavItem>
+                <NavItem isSelected={selected === href || selected === `${href}/`} onClick={updateSelected}>{text.toUpperCase()}</NavItem>
               </Link>
             </li>
-          )})}
+          ))}
         </ul>
       </nav>
 
       <style jsx>{defaultStyle}</style>
     </React.Fragment>
-  )}
+  )
 );
