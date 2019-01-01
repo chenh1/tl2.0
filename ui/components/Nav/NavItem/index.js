@@ -13,7 +13,17 @@ const defaultStyle = css`
   }
   .nav-item:hover {
     cursor: pointer;
+  }
+  .nav-item:hover::after {
+    max-width: 100%;
+  }
+  .nav-item::after {
     border-bottom: 3px solid ${colors.dustyPink};
+    content: "";
+    display: block;
+    max-width: 0;
+    transition: max-width .2s linear;
+    width: 100%;
   }
 `;
 
