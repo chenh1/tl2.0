@@ -35,7 +35,7 @@ const Home = compose(
         <Layout modalActive={showStory}>
           <Section>
             <Paragraph>I’m Tracy—UX &amp; UI designer with a deep empathy for people and a natural affinity for human behavior. Design is relational and more than how something looks. I’m committed to providing design solutions that connect to the heart of customers. </Paragraph>
-            <Paragraph>See my resume <TextLink href="">here</TextLink></Paragraph>
+            <Paragraph>See my resume <TextLink href="/static/Tracy-Lin-Resume.pdf#zoom=125">here</TextLink></Paragraph>
 
             <div className={showStory ? 'link hidden' : 'link'}>
               <Paragraph>For a glimpse into my path, read my story <TextLink onClick={displayStory}>here</TextLink></Paragraph>

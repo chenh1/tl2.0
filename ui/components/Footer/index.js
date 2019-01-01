@@ -10,9 +10,9 @@ import Section from '../Section';
 
 const links = [
   {text: 'traysheeshee@gmail.com', href: 'mailto:traysheeshee@gmail.com?Subject=Hello%20Mer'},
-  {text: 'linkedin', href: '/work'},
-  {text: 'medium', href: '/work'},
-  {text: 'graphic design', href: '/work'}
+  {text: 'linkedin', href: 'https://www.linkedin.com/in/tracy-lin'},
+  {text: 'medium', href: 'https://medium.com/@tracy.lin'},
+  {text: 'graphic design', href: 'http://cargocollective.com/tracylin'}
 ];
 
 const defaultStyle = css`
@@ -89,7 +89,7 @@ export default () => (
           <ul>
             {links.map((link, index) => (
               <li key={index}>
-                <a href={link.href}>
+                <a target="_blank" href={link.href}>
                   <span className="footer-item">{link.text.toUpperCase()}</span>
                 </a>
               </li>
