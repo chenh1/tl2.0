@@ -19,6 +19,8 @@ const defaultStyle = css`
     padding-top: 0;
   }
   .section-content {
+    display: flex;
+    flex-direction: column;
     max-width: ${spacing.maxWidth};
     width: 100%;
   }

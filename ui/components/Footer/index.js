@@ -4,8 +4,8 @@ import viewport from '../../spacing/viewport';
 import fontFamily from '../../styles/fontFamily';
 import fontSize from '../../spacing/fontSize';
 import colors from '../../styles/colors';
-import navSpacing from '../../spacing/nav';
 import spacing from '../../spacing/module';
+import letterSpacing from '../../spacing/letterSpacing';
 import Section from '../Section';
 
 const links = [
@@ -33,6 +33,7 @@ const defaultStyle = css`
   .footer-item {
     font-family: ${fontFamily.roboto};
     font-size: ${fontSize.sm};
+    letter-spacing: ${letterSpacing.roboto};
   }
   .footer-wrapper {
     align-items: center;

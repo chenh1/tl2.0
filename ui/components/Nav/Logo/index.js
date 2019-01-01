@@ -1,5 +1,5 @@
 import React from 'react';
-import { compose, withStateHandlers, withState } from 'recompose';
+import { compose, withStateHandlers } from 'recompose';
 import css from 'styled-jsx/css';
 import navSpacing from '../../../spacing/nav';
 import fontSize from '../../../spacing/fontSize';
@@ -21,9 +21,7 @@ const defaultStyle = css`
 
 export default compose(
   withStateHandlers(
-    () => ({
-      hovered: false
-    }),
+    () => ({ hovered: false }),
     {
       hoverOn: () => () => ({ hovered: true }),
       hoverOff: () => () => ({ hovered: false })

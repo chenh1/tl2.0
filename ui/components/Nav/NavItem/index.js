@@ -2,13 +2,14 @@ import React from 'react';
 import css from 'styled-jsx/css';
 import fontFamily from '../../../styles/fontFamily';
 import fontSize from '../../../spacing/fontSize';
+import letterSpacing from '../../../spacing/letterSpacing';
 import colors from '../../../styles/colors';
-
 
 const defaultStyle = css`
   .nav-item {
     font-family: ${fontFamily.roboto};
     font-size: ${fontSize.sm};
+    letter-spacing: ${letterSpacing.roboto};
   }
   .nav-item:hover {
     cursor: pointer;

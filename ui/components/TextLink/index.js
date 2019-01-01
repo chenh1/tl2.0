@@ -10,6 +10,7 @@ const defaultStyle = css`
   }
   .link:hover {
     color: ${colors.salmon};
+    cursor: pointer;
   }
   @media (min-width: ${viewport.lg}) {
     .link {
@@ -18,9 +19,9 @@ const defaultStyle = css`
   }
 `;
 
-export default ({ children, href }) =>  (
+export default ({ children, href, onClick }) =>  (
   <React.Fragment>
-    <a target="_blank" href={href} className="link">{children}</a>
+    <a target="_blank" href={href} className="link" onClick={onClick}>{children}</a>
 
     <style jsx>{defaultStyle}</style>
   </React.Fragment>

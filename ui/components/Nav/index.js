@@ -49,14 +49,8 @@ const defaultStyle = css`
 
 export default compose(
   withStateHandlers(
-    () => ({
-      selected: ''
-    }),
-    {
-      updateSelected: () => (path) => ({
-        selected: path
-      })
-    }
+    () => ({ selected: '' }),
+    { updateSelected: () => path => ({ selected: path }) }
   ),
   lifecycle({
     componentDidMount() {
