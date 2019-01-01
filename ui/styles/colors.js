@@ -6,5 +6,6 @@ export default {
   lightPink: '#f2f2f2',
   transparent: 'rgba(0, 0, 0, 0)',
   gray: '#d7d7d7',
+  lightGray: '#d8d8d8',
   white: '#ffffff',
 };

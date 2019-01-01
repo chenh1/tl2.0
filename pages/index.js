@@ -15,7 +15,6 @@ import Heading from '../ui/components/Heading';
 import Section from '../ui/components/Section';
 import Layout from '../ui/components/Layout';
 
-
 const Home = compose(
   withStateHandlers(
     () => ({
@@ -121,6 +120,7 @@ const Home = compose(
             background: ${colors.lightPink};
             margin-bottom: 50px;
             max-height: 1300px;
+            min-height: 100vh;
             position: absolute;
             top: 0;
             transform: translateY(-${spacing.xl4});
@@ -153,6 +153,7 @@ const Home = compose(
             }
             .story {
               margin-bottom: 0;
+              min-height: 0;
               position: relative;
               transform: translateY(0);
             }
