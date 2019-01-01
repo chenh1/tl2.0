@@ -59,7 +59,7 @@ const defaultStyle = css`
     li:last-child {
       margin-right: 0;
     }
-    a{
+    a {
       text-decoration: none;
     }
     a:hover {

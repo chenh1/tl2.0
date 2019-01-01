@@ -26,8 +26,10 @@ const defaultStyle = css`
     justify-content: center;
     position: fixed;
     width: 100%;
+    z-index: 12;
   }
   ul {
+    align-items: center;
     display: flex;
     list-style: none;
     padding: 0;
@@ -39,7 +41,9 @@ const defaultStyle = css`
     nav {
       background: ${colors.transparent};
       border-top: none;
+      min-height: 160px;
       position: relative;
+      z-index: 9;
     }
     li {
       margin: 0 ${navSpacing.lg};

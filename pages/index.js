@@ -1,6 +1,8 @@
 import React from 'react';
 import { compose, withStateHandlers, lifecycle } from 'recompose';
 import viewport from '../ui/spacing/viewport';
+import colors from '../ui/styles/colors';
+import spacing from '../ui/spacing/module';
 import Head from '../ui/components/head';
 import Nav from '../ui/components/Nav';
 import Footer from '../ui/components/Footer';
@@ -48,9 +50,17 @@ const Home = compose(
               <Paragraph sub>When I came across Merlin the wizard of Arthurian legend years later, it occurred to me: I’m Merlin. I had been Merlin all this time. I now understand that I was Mer in my childhood and youth because I didn&apos;t quite know how to be Tracy yet. Mer lent a perspective in which I could see and craft a new reality. Mer symbolized purity, playfulness, and authenticity—root characteristics of Merlin and Tracy.</Paragraph>
               
               <Heading two>FROM DESIGN TO DESIGN</Heading>
+              <Paragraph sub>I grew up drawing Mer and everything around. And much to my mother’s exasperated sighs, I asked questions to no end. How did Santa manage to bring gifts before midnight? Why did Auntie leave in a hurry? What do you mean the man on the street doesn’t have a home? Nothing was too mundane for my curiosity.</Paragraph>
+              <Paragraph sub>In college, I discovered design thinking. And as an art student, began applying user-centered ideology to my creative approach. Who is my audience? How does my work make them feel?</Paragraph>
+              <Paragraph sub>I pivoted to graphic design and developed a curiosity to the end-user. I wanted to know who I was designing for and asked questions to build this understanding. When I later came across UX design, it dawned on me that this was what I had been looking for. This was the thing I had been practicing all along. </Paragraph>
+              <Paragraph sub>As my work shifted into UX and UI design, I learned to balance business goals with customer needs. I’m committed to designing products and services with purpose. And I strive to provide design solutions that speak to the heart of customers. </Paragraph>
+              <Paragraph sub>Wanna stir up some UX magic with Merlin? Together we can make a positive and lasting difference in the lives of people. <a href="mailto:traysheeshee@gmail.com?Subject=Hello%20Mer">Let’s chat.</a></Paragraph>
 
               <div onClick={hideStory} className="close-icon">
                 <img src="/static/close.png"/>
+              </div>
+              <div className="close-bar">
+                CLOSE
               </div>
             </Section>
           </div>
@@ -65,29 +75,61 @@ const Home = compose(
 
       <style jsx>
         {`
+          a {
+            color: ${colors.black};
+          }
           .close-icon {
             cursor: pointer;
             position: absolute;
             right: 16px;
           }
+          .close-icon img {
+            max-width: 16px;
+          }
           .link {
             max-height: 100px;
           }
           .story {
-            max-height: 500px;
-            position: relative;
+            background: ${colors.lightPink};
+            max-height: 1300px;
+            min-height: 100vh;
+            position: absolute;
+            top: 0;
+            transform: translateY(-${spacing.xl4});
+            z-index: 11;
           }
           .story,
           .link {
             overflow: hidden;
-            transition: max-height .5s;
+            transition: .5s;
           }
-          .hidden {
-            max-height: 0px;
+          
+          .hidden.story {
+            transform: translateY(100%);
           }
           @media (min-width: ${viewport.lg}) {
+            a {
+              text-decoration: none;
+            }
+            a:hover {
+              border-bottom: 3px solid ${colors.dustyPink};
+            }
             .close-icon {
               right: 25px;
+            }
+            .close-icon img {
+              max-width: 25px;
+            }
+            .story {
+              position: relative;
+              transform: translateY(0);
+            }
+            .hidden {
+              max-height: 0px;
+              min-height: 0px;
+            }
+            .hidden.story {
+              transform: translateY(0);
             }
           }
         `}

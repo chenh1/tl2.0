@@ -6,11 +6,14 @@ import colors from '../../styles/colors';
 
 const defaultStyle = css`
   main {
-    min-height: calc(100vh - 292px);
+    margin-top: ${spacing.xl4};
+    min-height: calc(100vh - 357px);
+    position: relative;
   }
 
   @media (min-width: ${viewport.lg}) {
     main {
+      margin-top: 0;
       min-height: calc(100vh - 132px);
     }
   }
