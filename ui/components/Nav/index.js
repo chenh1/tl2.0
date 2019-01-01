@@ -58,6 +58,7 @@ export default compose(
   lifecycle({
     componentDidMount() {
       const path = location && location.pathname;
+      console.log('path::::', path)
       this.props.updateSelected(path);
     }
   })
