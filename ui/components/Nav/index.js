@@ -64,21 +64,22 @@ export default compose(
   })
 )(
   ({ selected, updateSelected }) => {
-    console.log('selected and href:::', selected, `${selected}/`, href);
-    console.log('is selected???', href === selected, href === `${selected}/`)
     return (
     <React.Fragment>
       <Logo/>
 
       <nav>
         <ul>
-          {links.map(({ href, text }, index) => (
+          {links.map(({ href, text }, index) => {
+            console.log('selected and href:::', selected, `${selected}/`, href);
+            console.log('is selected???', href === selected, href === `${selected}/`)
+            return (
             <li key={index}>
               <Link href={href}>
                 <NavItem isSelected={href === selected || href === `${selected}/`} onClick={updateSelected}>{text.toUpperCase()}</NavItem>
               </Link>
             </li>
-          ))}
+          )})}
         </ul>
       </nav>
 
