@@ -1,6 +1,9 @@
 import React from 'react';
 import { compose, withStateHandlers, lifecycle } from 'recompose';
 import viewport from '../ui/spacing/viewport';
+import fontFamily from '../ui/styles/fontFamily';
+import fontSize from '../ui/spacing/fontSize';
+import letterSpacing from '../ui/spacing/letterSpacing';
 import colors from '../ui/styles/colors';
 import spacing from '../ui/spacing/module';
 import Head from '../ui/components/head';
@@ -19,10 +22,7 @@ const Home = compose(
       showStory: false
     }),
     {
-      displayStory: () => (e) => {
-        console.log(e.target)
-        return { showStory: true }
-      },
+      displayStory: () => () => ({ showStory: true }),
       hideStory: () => () => ({ showStory: false })
     }
   )
@@ -33,7 +33,7 @@ const Home = compose(
         <Head title="Home" />
         <Nav />
 
-        <Layout>
+        <Layout modalActive={showStory}>
           <Section>
             <Paragraph>I’m Tracy—UX &amp; UI designer with a deep empathy for people and a natural affinity for human behavior. Design is relational and more than how something looks. I’m committed to providing design solutions that connect to the heart of customers. </Paragraph>
             <Paragraph>See my resume <TextLink href="">here</TextLink></Paragraph>
@@ -59,10 +59,13 @@ const Home = compose(
               <div onClick={hideStory} className="close-icon">
                 <img src="/static/close.png"/>
               </div>
-              <div className="close-bar">
-                CLOSE
-              </div>
             </Section>
+          </div>
+
+          <div onClick={hideStory} className={showStory ? 'close-bar' : 'hide-bar'}>
+            <span className="close-text">
+              CLOSE
+            </span>
           </div>
 
           <Section>
@@ -78,6 +81,31 @@ const Home = compose(
           a {
             color: ${colors.black};
           }
+          .close-bar {
+            background: ${colors.white};
+            border-top: 1px solid ${colors.gray};
+            bottom: 0;
+            display: flex;
+            justify-content: center;
+            max-height: 50px;
+            position: fixed;
+            width: 100%;
+            z-index: 12;
+          }
+          .close-text {
+            font-family: ${fontFamily.roboto};
+            font-size: ${fontSize.sm};
+            height: 18px;
+            letter-spacing: ${letterSpacing.roboto};
+            margin: ${spacing.md} 0;
+          }
+          .close-text:hover {
+            cursor: pointer;
+            border-bottom: 3px solid ${colors.dustyPink};
+          }
+          .hide-bar {
+            display: none;
+          }
           .close-icon {
             cursor: pointer;
             position: absolute;
@@ -91,8 +119,8 @@ const Home = compose(
           }
           .story {
             background: ${colors.lightPink};
+            margin-bottom: 50px;
             max-height: 1300px;
-            min-height: 100vh;
             position: absolute;
             top: 0;
             transform: translateY(-${spacing.xl4});
@@ -114,6 +142,9 @@ const Home = compose(
             a:hover {
               border-bottom: 3px solid ${colors.dustyPink};
             }
+            .close-bar {
+              display: none;
+            }
             .close-icon {
               right: 25px;
             }
@@ -121,6 +152,7 @@ const Home = compose(
               max-width: 25px;
             }
             .story {
+              margin-bottom: 0;
               position: relative;
               transform: translateY(0);
             }

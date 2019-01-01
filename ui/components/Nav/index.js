@@ -26,7 +26,7 @@ const defaultStyle = css`
     justify-content: center;
     position: fixed;
     width: 100%;
-    z-index: 12;
+    z-index: 9;
   }
   ul {
     align-items: center;
@@ -43,7 +43,6 @@ const defaultStyle = css`
       border-top: none;
       min-height: 160px;
       position: relative;
-      z-index: 9;
     }
     li {
       margin: 0 ${navSpacing.lg};

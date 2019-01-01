@@ -19,12 +19,20 @@ const defaultStyle = css`
   }
 `;
 
-export default ({ children }) =>  (
+export default ({ children, modalActive }) => (
   <React.Fragment>
     <main className="section">
         {children}
     </main>
 
     <style jsx>{defaultStyle}</style>
+
+    <style jsx>
+      {`
+        main {
+          overflow: ${modalActive ? 'visible' : 'hidden'};
+        }
+      `}
+    </style>
   </React.Fragment>
 );
