@@ -44,7 +44,7 @@ const Home = compose(
             <Paragraph>I’m Tracy—UX &amp; UI designer with a deep empathy for people and a natural affinity for human behavior. Design is relational and more than how something looks. I’m committed to providing design solutions that connect to the heart of customers. </Paragraph>
             <Paragraph>See my resume <TextLink href="/static/Tracy-Lin-Resume.pdf#zoom=125">here</TextLink></Paragraph>
 
-            <div className={showStory ? 'link hidden' : 'link'}>
+            <div className="link">
               <Paragraph>For a glimpse into my path, read my story <TextLink onClick={displayStory}>here</TextLink></Paragraph>
             </div>
           </Section>
@@ -136,7 +136,7 @@ const Home = compose(
           .story,
           .link {
             overflow: hidden;
-            transition: .5s;
+            transition: max-height .5s, transform .5s;
           }
           
           .hidden.story {
@@ -162,7 +162,8 @@ const Home = compose(
               margin-bottom: 0;
               min-height: 0;
               position: relative;
-              transform: translateY(0);
+              transform: translateY(-80px);
+              transition: max-height .5s, transform 0s;
             }
             .hidden {
               max-height: 0px;
@@ -170,6 +171,7 @@ const Home = compose(
             }
             .hidden.story {
               transform: translateY(0);
+              transition: max-height .5s, transform 0s linear .5s;
             }
           }
         `}
