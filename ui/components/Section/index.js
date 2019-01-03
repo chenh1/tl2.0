@@ -1,0 +1,50 @@
+import React from 'react';
+import css from 'styled-jsx/css';
+import spacing from '../../spacing/module';
+import viewport from '../../spacing/viewport';
+import colors from '../../styles/colors';
+
+const defaultStyle = css`
+  .section {
+    display: flex;
+    justify-content: center;
+    padding: ${spacing.md} ${spacing.md};
+  }
+  .section:first-child:not(:last-child),
+  .section:not(:first-child):not(:last-child) {
+    padding-bottom: 0;
+  }
+  .section:last-child:not(:first-child),
+  .section:not(:first-child):not(:last-child) {
+    padding-top: 0;
+  }
+  .section-content {
+    display: flex;
+    flex-direction: column;
+    max-width: ${spacing.maxWidth};
+    width: 100%;
+  }
+  @media (min-width: ${viewport.lg}) {
+    .section {
+      padding: ${spacing.xl} ${spacing.md};
+    }
+  }
+`;
+
+export default ({ children, dark }) =>  (
+  <React.Fragment>
+    <section className="section">
+      <div className="section-content">
+        {children}
+      </div>
+    </section>
+
+    <style jsx>{defaultStyle}</style>
+
+    <style jsx>
+      {`
+        background: ${dark === true ? colors.lightPink : colors.transparent}
+      `}
+    </style>
+  </React.Fragment>
+);
