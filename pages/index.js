@@ -53,7 +53,7 @@ const Home = compose(
           </Section>
 
           <div className={showStory ? 'story' : 'story hidden'}>
-            <Section dark>
+            <Section dark inOverlay>
               <Heading two>WHAT'S IN A NAME?</Heading>
               <Paragraph sub>My name is Tracy Lin but growing up, family and close friends called me Mer. Mer is a hybrid animal, a bear-rabbit creature. As a species, Mer is elusive. As an individual, Mer is Tracy embodied, an alter ego of sorts. Mer&apos;s origin is unknown and remains a curious phenomenon.</Paragraph>
               <Paragraph sub>When I came across Merlin the wizard of Arthurian legend years later, it occurred to me: I’m Merlin. I had been Merlin all this time. I now understand that I was Mer in my childhood and youth because I didn&apos;t quite know how to be Tracy yet. Mer lent a perspective in which I could see and craft a new reality. Mer symbolized purity, playfulness, and authenticity—root characteristics of Merlin and Tracy.</Paragraph>
@@ -125,12 +125,13 @@ const Home = compose(
           }
           .link {
             max-height: 100px;
+            overflow: hidden;
           }
           .story {
             background: ${colors.lightPink};
-            margin-bottom: 50px;
-            max-height: 1300px;
+            max-height: 100vh;
             min-height: 100vh;
+            overflow: auto;
             position: absolute;
             top: 0;
             transform: translateY(-${spacing.xl4});
@@ -138,9 +139,11 @@ const Home = compose(
           }
           .story,
           .link {
-            overflow: hidden;
             transition: max-height .5s, transform .5s;
-          }  
+          }
+          .story section {
+            padding-bottom: 67px;
+          }
           .hidden.story {
             transform: translateY(100%);
           }
@@ -162,6 +165,7 @@ const Home = compose(
             }
             .story {
               margin-bottom: -80px;
+              max-height: 1300px;
               min-height: 0;
               position: relative;
               transform: translateY(-80px);

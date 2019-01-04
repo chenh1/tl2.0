@@ -41,7 +41,7 @@ const defaultStyle = css`
     nav {
       background: ${colors.transparent};
       border-top: none;
-      min-height: 160px;
+      min-height: 140px;
       position: relative;
     }
     li {

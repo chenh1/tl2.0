@@ -24,10 +24,11 @@ const defaultStyle = css`
     font-family: ${fontFamily.garamond};
   }
   .work-link {
-    font-size: ${fontSize.md};
+    font-size: ${fontSize.md2};
     margin-bottom: ${spacing.xs};
   }
   .label {
+    font-size: ${fontSize.md2};
     line-height: 1.43;
   }
 
@@ -43,6 +44,7 @@ const defaultStyle = css`
       margin-bottom: ${spacing.sm};
     }
     .label {
+      font-size: ${fontSize.lg};
       line-height: 1.63;
     }
     .work-link:hover {
