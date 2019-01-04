@@ -1,5 +1,5 @@
 const navSpacing = 48;
-const logoMaxWidth = 80;
+const logoMaxWidth = 60;
 
 export default {
   logoMaxWidth: `${logoMaxWidth}px`,

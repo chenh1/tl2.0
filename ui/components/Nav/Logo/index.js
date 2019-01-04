@@ -32,7 +32,7 @@ const defaultStyle = css`
       max-width: ${navSpacing.logoMaxWidth};
     }
     .logo-eyes {
-      font-size: ${fontSize.xl2};
+      font-size: 54px;
     }
   }
 `;

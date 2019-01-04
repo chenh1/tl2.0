@@ -24,16 +24,22 @@ const defaultStyle = css`
     max-width: ${spacing.maxWidth};
     width: 100%;
   }
+  .in-overlay {
+    padding-bottom: 67px;
+  }
   @media (min-width: ${viewport.lg}) {
     .section {
       padding: ${spacing.xl} ${spacing.md};
     }
+    .in-overlay {
+      padding-bottom: ${spacing.xl};
+    }
   }
 `;
 
-export default ({ children, dark }) =>  (
+export default ({ children, dark, inOverlay }) =>  (
   <React.Fragment>
-    <section className="section">
+    <section className={inOverlay ? "section in-overlay" : "section"}>
       <div className="section-content">
         {children}
       </div>
