@@ -108,7 +108,7 @@ export default compose(
           <div className="footer-wrapper">
             <ul>
               <li>
-                <span className="footer-item">&copy; 2018 TRACY LIN</span>
+                <span className="footer-item">&copy; {new Date().getFullYear()} TRACY LIN</span>
               </li>
             </ul>
 
