@@ -5,7 +5,10 @@
     "build": "next build",
     "start": "next start",
     "build:static": "next export",
-    "test": "jest"
+    "test": "jest",
+    "server-side": "npm run build && npm run start",
+    "get-pid-3000": "lsof -i tcp:3000",
+    "kill-3000": "kill -9 `lsof -i TCP:3000 | awk '/LISTEN/{print $2}'`"
   },
   "dependencies": {
     "merge": ">=1.2.1",

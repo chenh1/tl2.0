@@ -1,6 +1,7 @@
 import React from 'react'
 import NextHead from 'next/head'
 import { string } from 'prop-types'
+import colors from '../styles/colors';
 
 const defaultDescription = ''
 const defaultOGURL = ''
@@ -31,6 +32,7 @@ const Head = props => (
     <meta property="og:image" content={props.ogImage || defaultOGImage} />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
+    <meta name="theme-color" content={colors.dustyPink}/>
   </NextHead>
 )
 

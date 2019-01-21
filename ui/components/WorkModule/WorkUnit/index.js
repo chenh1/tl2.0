@@ -15,9 +15,6 @@ const defaultStyle = css`
     padding: ${spacing.md} 0;
     text-align: left;
   }
-  .work-unit:last-child {
-    border-bottom: 1px solid ${colors.lightGray};
-  }
   .work-link,
   .label {
     color: ${colors.black};
@@ -37,6 +34,9 @@ const defaultStyle = css`
       align-items: center;
       padding: ${spacing.xl2} 0;
       text-align: center;
+    }
+    .work-unit:last-child {
+      border-bottom: 1px solid ${colors.lightGray};
     }
     .work-link {
       text-decoration: none;
