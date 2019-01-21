@@ -49,7 +49,7 @@ export default compose(
   ({ hovered, hoverOn, hoverOff }) => (
     <React.Fragment>
       <div className="logo" onMouseEnter={hoverOn} onMouseLeave={hoverOff}>
-        <img src="/static/logo-black.png"/>
+        <img alt="website logo" src="/static/logo-black.png"/>
         <div className="logo-eyes">👀</div>
       </div>
       

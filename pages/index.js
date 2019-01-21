@@ -66,7 +66,7 @@ const Home = compose(
               <Paragraph sub>Wanna stir up some UX magic with Merlin? Together we can make a positive and lasting difference in the lives of people. <a href={emailLink}>Let’s chat.</a></Paragraph>
 
               <div onClick={hideStory} className="close-icon">
-                <img src="/static/close.png"/>
+                <img alt="close icon" src="/static/close.png"/>
               </div>
             </Section>
           </div>
