@@ -8,7 +8,7 @@ import spacing from '../../../spacing/module';
 const defaultStyle = css`
   .paragraph {
     font-family: ${fontFamily.garamond};
-    font-size: ${fontSize.sm};
+    font-size: ${fontSize.md};
     line-height: 1.5;
     margin: ${spacing.sm} 0;
   }
