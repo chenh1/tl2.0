@@ -2,9 +2,11 @@
   "name": "create-next-example-app",
   "scripts": {
     "dev": "next",
-    "build": "next build",
+    "build": "next build && npm run copy-sw-dev",
     "start": "next start",
-    "build:static": "next export",
+    "build:static": "next export && npm run copy-sw-prod",
+    "copy-sw-dev": "node ./pwa/exportFiles.dev.js",
+    "copy-sw-prod": "node ./pwa/exportFiles.prod.js",
     "test": "jest",
     "server-side": "npm run build && npm run start",
     "get-pid-3000": "lsof -i tcp:3000",
